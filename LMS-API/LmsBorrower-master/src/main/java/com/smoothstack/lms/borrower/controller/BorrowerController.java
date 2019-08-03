@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,9 @@ import com.smoothstack.lms.borrower.service.BorrowerService;
 @RestController
 @RequestMapping("/borrower")
 public class BorrowerController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(BorrowerController.class);
+
 
 	private final String XML = "application/xml";
 	private final String JSON = "application/json";
@@ -39,6 +44,7 @@ public class BorrowerController {
 	
 	@GetMapping(value = "/branches", produces = { JSON, XML})
 	public List<LibraryBranch> getAllBranches(){
+		LOGGER.info("Employee add: {}");
 		return borrService.getAllBranches();
 	}
 	
