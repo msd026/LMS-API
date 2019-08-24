@@ -1,9 +1,9 @@
-Node{
-  Stage('Checkout'){
+node{
+  stage('Checkout'){
     git 'https://github.com/msd026/LMS-API'
   }
 
-  Stage('run Maven'){
+  stage('run Maven'){
   script: 'mvn clean package'
   }
 }
